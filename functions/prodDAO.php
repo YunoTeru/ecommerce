@@ -2,7 +2,7 @@
 
 //DAO- means Data Access Object - this files is incharge of all PHP-SQL Status
 
-require 'connection.php';
+require '../functions/connection.php';
 //requir means to connect the connection.php to this files
 
 function addProduct($prod_name, $prod_desc, $prod_date, $prod_price, $prod_stock){
