@@ -1,8 +1,9 @@
 <?php
 
-    require '../functions/custDAO.php';
+    require '../classes/CustDAO.php';
+    $custdao = new CustomerAccessObject;
     $cust_id = $_GET['id'];
-    $customer = retrieveSingleCustomer($cust_id);
+    $customer = $custdao->retrieveSingleCustomer($cust_id);
     if(isset($_POST['submit'])){
         $confirm  = $_POST['confirm'];
         if($confirm == 'delete'){

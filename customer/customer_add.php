@@ -1,6 +1,7 @@
 <?php
     
-    require '../functions/custDAO.php';
+    require '../classes/CustDAO.php';
+    $custdao = new CustomerAccessObject;
     if(isset($_POST['add'])){
         //initialazation of variables
         //getting the data from the form
@@ -15,7 +16,7 @@
 
         //echo $cust_fname;
         // $cust_status = $_POST['cust_status'];
-        addCustomer($cust_fname, $cust_lname, $cust_dob, $cust_address, $cust_phone, $cust_register_date, $cust_login_name, $cust_login_password);
+        $custdao->addCustomer($cust_fname, $cust_lname, $cust_dob, $cust_address, $cust_phone, $cust_register_date, $cust_login_name, $cust_login_password);
         header('Location: customer_tbl.php');//this will redirect us to after product adding
     }
 

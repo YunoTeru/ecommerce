@@ -8,8 +8,9 @@ if($_SESSION['logstat'] != "Active"){
     echo "Welcome User: ".$_SESSION['name']."<a href='../logout.php'>Logout</a>";
 }
 
-require '../functions/custDAO.php';
-$custlist = retrieveALLCustomer();
+require '../classes/CustDAO.php';
+$custdao = new CustomerAccessObject;
+$custlist = $custdao->retrieveALLCustomer();
 
 ?>
 

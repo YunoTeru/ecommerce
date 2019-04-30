@@ -1,8 +1,9 @@
 <?php
 
-    require '../functions/prodDAO.php';
+    require '../classes/ProdDAO.php';
+    $proddao = new ProductAccessObject;
     $prod_id = $_GET['id'];
-    $product = retrieveSingleProduct($prod_id);
+    $product = $proddao->retrieveSingleProduct($prod_id);
     if(isset($_POST['submit'])){
         $confirm  = $_POST['confirm'];
         if($confirm == 'delete'){

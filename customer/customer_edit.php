@@ -1,8 +1,9 @@
 <?php
     
-    require '../functions/custDAO.php';
+    require '../classes/CustDAO.php';
     $cust_id = $_GET['id'];
-    $customer = retrieveSingleCustomer($cust_id);
+    $custdao = new CustomerAccessObject;
+    $customer = $custdao->retrieveSingleCustomer($cust_id);
     
     if(isset($_POST['update'])){
         $cust_fname = $_POST['cust_fname'];
@@ -14,7 +15,7 @@
         $cust_login_name = $_POST['cust_login_name'];
         $cust_login_password = $_POST['cust_login_password'];
 
-        updateCustomer($cust_fname, $cust_lname, $cust_dob, $cust_address, $cust_phone, $cust_register_date, $cust_id, $cust_login_name, $cust_login_password);
+        $custdao->updateCustomer($cust_fname, $cust_lname, $cust_dob, $cust_address, $cust_phone, $cust_register_date, $cust_id, $cust_login_name, $cust_login_password);
         header('Location: customer_tbl.php');
     }
 
